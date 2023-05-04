@@ -50,7 +50,7 @@ Details of Spliformer INFO field in the VCF in **general mode**: Ref>Alt|gene|In
 
 >  **General mode:**
 
-An example of input file and its prediction file can be found at [examples/input-hg19.vcf](link) and [examples/output-hg19.vcf](link) respectively.  The prediction result in output.file ``` Spliformer=G>A|TTN|2:0.00|38:0.01|2:0.83|-38:0.31```for the variant ```chr2: 179642185 G>A ```can be interpreted as follows:
+An example of input file and its prediction file can be found at [examples/input-hg19.vcf](link) and [examples/output-hg19.vcf](link) respectively.  The prediction result in output.file ```G>A|TTN|2:0.00|38:0.01|2:0.83|-38:0.31```for the variant ```chr2: 179642185 G>A ```can be interpreted as follows:
 
 -   The possibility of the position chr2: 179642187 (2 bp downstream of the variant) is used as an acceptor increased by 0.00.
 -   The probability of the position chr2: 179642223 (38 bp downstream of the variant) is used as an acceptor decreased by 0.01.
