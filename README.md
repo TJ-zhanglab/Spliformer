@@ -10,7 +10,8 @@ pysam>=0.19.1,
 numpy>=1.22.4,
 pandas>=1.2.3,
 seaborn>=0.11.2,
-torch>=1.5.0
+torch>=1.5.0 #CPU version
+torch>=1.9.0 #GPU version
 ```
 ## Installation
 You can install Spliformer through github repository:
