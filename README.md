@@ -4,7 +4,14 @@ Spliformer is a deep-learning tool based on CNN and self-attention mechanism for
 
 Spliformer can also be run on our [website](weblink), where the researchers could easily predict variants of interests and visualize the splicing motifs with their AWS in the heatmap.
 ## Prerequisites
-文迪这一部分麻烦测试一下，然后写一下，我会在你的基础上修改
+```
+pyfaidx>=0.6.3.1,
+pysam>=0.19.1,
+numpy>=1.22.4,
+pandas>=1.2.3,
+seaborn>=0.11.2,
+torch>=1.5.0
+```
 ## Installation
 You can install Spliformer through github repository:
 ```
