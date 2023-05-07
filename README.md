@@ -7,12 +7,14 @@ Spliformer can also be run on our [website](weblink), where the researchers coul
 文迪这一部分麻烦测试一下，然后写一下，我会在你的基础上修改
 ## Installation
 You can install Spliformer through github repository:
-```git clone https://github.com/TJ-zhanglab/Spliformer.git
+```
+git clone https://github.com/TJ-zhanglab/Spliformer.git
 cd Spliformer
 python setup.py install
 ```
 If you use CPU to run Spliformer, ```pytorch >= 1.5.0``` is required. If you use GPU to run Spliformer, ```pytorch >= 1.9.0``` is required. You can install pytorch via pip or conda.
-```pip install pytorch
+```
+pip install pytorch
 #or
 conda install pytorch
 ```
