@@ -32,12 +32,12 @@ Spliformer can be  run under two modes
 > **General mode:**
 ```sh
 #Predict the influence of variants on RNA splicing
-Spliformer -T general -I /path/input.vcf -O /path/output.vcf -R genome.fa -A annotation.txt
+spliformer -T general -I /path/input.vcf -O /path/output.vcf -R genome.fa -A annotation.txt
 ```
 > **Motif mode:**
 ```sh
 #Visualize the AWS (attention weight score) of splicing motifs in the wild type and variant type sequences.
-Spliformer -T motif -I /path/input.vcf -R genome.fa -A annotation.txt 
+spliformer -T motif -I /path/input.vcf -R genome.fa -A annotation.txt 
 ```
 **Required parameters**
 
