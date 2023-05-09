@@ -19,14 +19,6 @@ We encourage user to create a new conda environment before using Spliformer,you 
 conda create -n Spliformer python=3.9
 conda activate Spliformer
 ```
-文迪这里可以说明一下，这个软件在Debian 4.19.235-1 (2022-03-17) x86_64上成功测试过, python版本为3.9.6，pytorch-GPU为1.9.0,。
-推荐用户可以创新一个新的环境
-miniconda下载(https://docs.conda.io/en/latest/miniconda.html)
-使用conda创建一个新环境(环境名pytorch_test,python版本3.8)
-conda create -n Spliformer python=3.8
-激活环境
-conda activate Spliformer
-安装pytorch-GPU/CPU版本(具体版本号可去pytorch官网查看pytorch.org/)
 
 ## Installation
 文迪这里结合上面再更新一下
