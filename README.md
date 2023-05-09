@@ -13,6 +13,12 @@ seaborn>=0.11.2,
 torch>=1.5.0 #CPU version
 torch>=1.9.0 #GPU version
 ```
+Our developing environment is based on ```Debian 4.19.235-1 (2022-03-17) x86_64```, and the python version is ```python 3.9.6```, and pytorch version is ```pytorch-cuda 1.9.0```.
+We encourage user to create a new conda environment before using Spliformer,you can first download minicoda through <https://docs.conda.io/en/latest/miniconda.html>, and then you can create a new conda environment named ```Spliformer``` and based on ```python 3.9``` through the following commands:
+```
+conda create -n Spliformer python=3.9
+conda activate Spliformer
+```
 文迪这里可以说明一下，这个软件在Debian 4.19.235-1 (2022-03-17) x86_64上成功测试过, python版本为3.9.6，pytorch-GPU为1.9.0,。
 推荐用户可以创新一个新的环境
 miniconda下载(https://docs.conda.io/en/latest/miniconda.html)
