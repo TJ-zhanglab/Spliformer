@@ -21,7 +21,6 @@ conda activate Spliformer
 ```
 
 ## Installation
-文迪这里结合上面再更新一下
 You can install Spliformer through github repository:
 ```
 git clone https://github.com/TJ-zhanglab/Spliformer.git
