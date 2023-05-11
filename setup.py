@@ -2,8 +2,6 @@ from setuptools import setup, find_packages
 
 setup(name='spliformer',
       description='Spliformer',
-#       long_description=io.open('README.md', encoding='utf-8').read(),
-#       long_description_content_type='text/markdown',
       version='1.0',
       author='TJ-Zhanglab',
       author_email='tjzhanglab@163.com',
