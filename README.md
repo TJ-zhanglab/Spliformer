@@ -51,7 +51,7 @@ spliformer -T motif -I ./examples/inputhg19-motif.vcf -R /path/genome.fa -A ./re
 -   -T: Tools (general/motif)for prediction (default: general)
 -   -I: Input VCF with variants of interest.
 -   -O: Output VCF with prediction of Spliformer in **general mode**
--   -R: Reference fasta file of human genome. Please download it first before making prediction from [GRCh37/hg19](http://hgdownload.cse.ucsc.edu/goldenPath/hg19/bigZips/hg19.fa.gz) or [GRCh38/hg38](http://hgdownload.cse.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz).
+-   -R: Reference fasta file of human genome. Please download and unzip it first before making prediction from [GRCh37/hg19](http://hgdownload.cse.ucsc.edu/goldenPath/hg19/bigZips/hg19.fa.gz) or [GRCh38/hg38](http://hgdownload.cse.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz).
 -   -A: Annotation file of human genome.  We created hg19/hg38 genome annotation file according to the GENCODE v39 gtf file. The files locate in the [./reference/](https://github.com/TJ-zhanglab/Spliformer/tree/main/reference).
 
 **Optional parameters**
