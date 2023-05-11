@@ -1,6 +1,6 @@
 # Spliformer
 
-Spliformer is a deep-learning tool based on CNN and self-attention mechanism for predicting the influence of genetic variants on RNA splicing in human and visualizing the AWS of splicing motifs splicing motif  (more details, see [paper](paperlink). It can take a VCF file containing variants of interest and predicts the possibility of a variant causing mis-splicing and draw the AWS heatmaps of splicing motifs in the wild type and variant type sequences.
+Spliformer is a deep-learning tool based on CNN and self-attention mechanism for predicting the influence of genetic variants on RNA splicing in human and visualizing the attention weight score (AWS) of splicing motifs(more details, see [paper](paperlink)). It can take a VCF file containing variants of interest as input and predict the possibility of a variant causing mis-splicing. In addition, it can draw the AWS heatmaps of splicing motifs in the wild type and variant type sequences for exploring any potential splicing motifs.
 
 Spliformer can also be run on our [website](weblink), where the researchers could easily predict variants of interests and visualize the splicing motifs with their AWS in the heatmap.
 ## Prerequisites
@@ -39,12 +39,12 @@ Spliformer can be  run under two modes
 > **General mode:**
 ```sh
 #Predict the influence of variants on RNA splicing
-spliformer -T general -I /path/input.vcf -O /path/output.vcf -R genome.fa -A annotation.txt
+spliformer -T general -I /path/input.vcf -O /path/output.vcf -R /path/genome.fa -A /path/annotation.txt
 ```
 > **Motif mode:**
 ```sh
 #Visualize the AWS (attention weight score) of splicing motifs in the wild type and variant type sequences.
-spliformer -T motif -I /path/input.vcf -R genome.fa -A annotation.txt 
+spliformer -T motif -I /path/input.vcf -R /path/genome.fa -A /path/annotation.txt 
 ```
 **Required parameters**
 
@@ -56,9 +56,9 @@ spliformer -T motif -I /path/input.vcf -R genome.fa -A annotation.txt
 
 **Optional parameters**
 
--   -D: The range of distance between the variant and gained/lost splice site shows in the output.vcf under general mode. The range of distance can be chosen is from ```0 to 4999``` (default: 50).
+-   -D: The range of distance between the variant and gained/lost splice site shows in the output.vcf in **general mode**. The range of distance can be chosen is from ```0 to 4999``` (default: 50).
 -   -M: Mask predicted scores with annotated acceptor/donor gain and unannotated acceptor/donor loss. ```0: not masked; 1: masked``` (default: 0).
--   -N: Number of motifs represents in the AWS heatmap in **motif mode**. The range of numbers can be chosen is from ```0 to 40``` (default: 0).
+-   -N: Number of motifs represents in the AWS heatmap in **motif mode**. The range of numbers can be chosen is from ```0 to 40``` (default: 10).
 
 Details of Spliformer INFO field in the VCF in **general mode**: Ref>Alt|gene|Increased acceptor dis: score|Decreased acceptor dis: score|Increased donor dis: score|Decreased donor dis: score:
 
@@ -84,9 +84,9 @@ An example of input file and its prediction file can be found at [examples/input
 
 >**Motif mode:**
 
-An example of input file and its prediction file can be found at [examples/input19.vcf](https://github.com/TJ-zhanglab/Spliformer/tree/main/examples) and [examples/motif_results/TTN_motif_aws/](https://github.com/TJ-zhanglab/Spliformer/tree/main/examples/motif_results/TTN_motif_aws) respectively.  The outputs under motif mode are two AWS heatmap of splicing motifs in the wild type and variant type sequence according to the variant’s information provided in the input-hg19.vcf :
+An example of input file and its prediction file can be found at [examples/input19-motif.vcf](https://github.com/TJ-zhanglab/Spliformer/tree/main/examples) and [examples/motif_results/TTN_motif_aws/](https://github.com/TJ-zhanglab/Spliformer/tree/main/examples/motif_results/TTN_motif_aws) respectively.  The outputs under motif mode are two AWS heatmap of splicing motifs in the wild type and variant type sequence according to the variant’s information provided in the input19-motif.vcf :
 
-From the heatmap, we can find that the ```variant (chr2: 179642185 G>A)``` significantly increased the AWS (0.27>0.66) of regulatory motif ```AGAAUCACUGGGU``` to target splice motif ```GCCUACCCUGUUU``` in variant type sequence compared with the one in wild type sequence:
+From the heatmap, we can find that the ```variant (chr2: 179642185 G>A)``` significantly increased the AWS (from 0.27 to 0.66) of regulatory motif ```AGAAUCACUGGGU``` to target splice motif ```GCCUACCCUGUUU``` in variant type sequence compared with the one in wild type sequence, suggesting that regulatory motif ```AGAAUCACUGGGU``` may play a potential role in RNA splicing:
 ![image](https://github.com/TJ-zhanglab/Spliformer/blob/main/TTN_motif.png)
 ## Cite us
 If you use Spliformer for prediction, please cite [paper](link)
