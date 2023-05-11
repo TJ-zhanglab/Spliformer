@@ -1,8 +1,8 @@
 # Spliformer
 
-Spliformer is a deep-learning tool based on CNN and self-attention mechanism for predicting the influence of genetic variants on RNA splicing in human and visualizing the AWS of splicing motifs splicing motif  (more details, see [paper](paperlink). It can take a VCF file containing variants of interest and predicts the possibility of a variant causing mis-splicing and draw the AWS heatmaps of splicing motifs in the wild type and variant type sequences.
+Spliformer is a deep-learning tool based on CNN and self-attention mechanism for predicting the influence of genetic variants on RNA splicing in human and visualizing the attention weight score (AWS) of splicing motifs(more details, see [paper](paperlink)). It can take a VCF file containing variants of interest as input and predict the possibility of a variant causing mis-splicing. In addition, it can draw the AWS heatmaps of splicing motifs in the wild type and variant type sequences for exploring any potential splicing motifs.
 
-Spliformer can also be run on our [website](weblink), where the researchers could easily predict variants of interests and visualize the splicing motifs with their AWS in the heatmap.
+Spliformer can also be run on our [website](weblink)(updating), where the researchers could easily predict variants of interests and visualize the splicing motifs with their AWS in the heatmap.
 ## Prerequisites
 ```
 pyfaidx>=0.6.3.1,
@@ -13,8 +13,8 @@ seaborn>=0.11.2,
 torch>=1.5.0 #CPU version
 torch>=1.9.0 #GPU version
 ```
-Our developing environment is based on ```Debian 4.19.235-1 (2022-03-17) x86_64```, and the python version is ```python 3.9.6```, and pytorch version is ```pytorch-cuda 1.9.0```.
-We encourage user to create a new conda environment before using Spliformer,you can first download miniconda through <https://docs.conda.io/en/latest/miniconda.html>, and then you can create a new conda environment named ```Spliformer```  with ```python 3.9``` through the following commands:
+Our developing environment has been tested on ```Debian 4.19.235-1 (2022-03-17) x86_64```, Python version is ```python 3.9.6```, and Pytorch version is ```pytorch-cuda 1.9.0```.
+We encourage user to create a new conda environment before using Spliformer, you can first download miniconda through <https://docs.conda.io/en/latest/miniconda.html>, and then you can create a new conda environment named ```Spliformer```  with ```python 3.9``` through the following commands:
 ```
 conda create -n Spliformer python=3.9
 conda activate Spliformer
@@ -27,7 +27,7 @@ git clone https://github.com/TJ-zhanglab/Spliformer.git
 cd Spliformer
 python setup.py install
 ```
-If you use CPU to run Spliformer, ```pytorch >= 1.5.0``` is required. If you use GPU to run Spliformer, ```pytorch >= 1.9.0``` is required. You can install pytorch via pip or conda. More installation details can be found on <https://pytorch.org/>
+If you use CPU to run Spliformer, ```pytorch ≥ 1.5.0``` is required. If you use GPU to run Spliformer, ```pytorch-cuda ≥ 1.9.0``` is required. You can install pytorch-cpu via pip or conda. More installation details can be found on <https://pytorch.org/>
 ```
 pip install pytorch
 #or
@@ -39,12 +39,12 @@ Spliformer can be  run under two modes
 > **General mode:**
 ```sh
 #Predict the influence of variants on RNA splicing
-spliformer -T general -I /path/input.vcf -O /path/output.vcf -R genome.fa -A annotation.txt
+spliformer -T general -I /path/input.vcf -O /path/output.vcf -R /path/genome.fa -A /path/annotation.txt
 ```
 > **Motif mode:**
 ```sh
 #Visualize the AWS (attention weight score) of splicing motifs in the wild type and variant type sequences.
-spliformer -T motif -I /path/input.vcf -R genome.fa -A annotation.txt 
+spliformer -T motif -I /path/input.vcf -R /path/genome.fa -A /path/annotation.txt 
 ```
 **Required parameters**
 
@@ -56,9 +56,9 @@ spliformer -T motif -I /path/input.vcf -R genome.fa -A annotation.txt
 
 **Optional parameters**
 
--   -D: The range of distance between the variant and gained/lost splice site shows in the output.vcf under general mode. The range of distance can be chosen is from ```0 to 4999``` (default: 50).
+-   -D: The range of distance between the variant and gained/lost splice site shows in the output.vcf in **general mode**. The range of distance can be chosen is from ```0 to 4999``` (default: 50).
 -   -M: Mask predicted scores with annotated acceptor/donor gain and unannotated acceptor/donor loss. ```0: not masked; 1: masked``` (default: 0).
--   -N: Number of motifs represents in the AWS heatmap in **motif mode**. The range of numbers can be chosen is from ```0 to 40``` (default: 0).
+-   -N: Number of motifs represents in the AWS heatmap in **motif mode**. The range of numbers can be chosen is from ```0 to 40``` (default: 10).
 
 Details of Spliformer INFO field in the VCF in **general mode**: Ref>Alt|gene|Increased acceptor dis: score|Decreased acceptor dis: score|Increased donor dis: score|Decreased donor dis: score:
 
@@ -75,7 +75,7 @@ Details of Spliformer INFO field in the VCF in **general mode**: Ref>Alt|gene|In
 
 >  **General mode:**
 
-An example of input file and its prediction file can be found at [examples/input-hg19.vcf](link) and [examples/output-hg19.vcf](link) respectively.  The prediction result in output.file ```G>A|TTN|2:0.00|38:0.01|2:0.83|-38:0.31```for the variant ```chr2: 179642185 G>A ```can be interpreted as follows:
+An example of input file and its prediction file can be found at [examples/input19.vcf](https://github.com/TJ-zhanglab/Spliformer/tree/main/examples) and [examples/output.vcf](https://github.com/TJ-zhanglab/Spliformer/tree/main/examples) respectively.  The prediction result in output.file ```G>A|TTN|2:0.00|38:0.01|2:0.83|-38:0.31```for the variant ```chr2: 179642185 G>A ```can be interpreted as follows:
 
 -   The possibility of the position chr2: 179642187 (2 bp downstream of the variant) is used as an acceptor increased by 0.00.
 -   The probability of the position chr2: 179642223 (38 bp downstream of the variant) is used as an acceptor decreased by 0.01.
@@ -84,9 +84,9 @@ An example of input file and its prediction file can be found at [examples/input
 
 >**Motif mode:**
 
-An example of input file and its prediction file can be found at [examples/input-hg19.vcf](https://github.com/TJ-zhanglab/Spliformer/blob/main/examples/input19-motif.vcf) and [examples/motif_results/TTN_motif_aws/]() respectively.  The outputs under motif mode are two AWS heatmap of splicing motifs in the wild type and variant type sequence according to the variant’s information provided in the input-hg19.vcf :
+An example of input file and its prediction file can be found at [examples/input19-motif.vcf](https://github.com/TJ-zhanglab/Spliformer/tree/main/examples) and [examples/motif_results/TTN_motif_aws/](https://github.com/TJ-zhanglab/Spliformer/tree/main/examples/motif_results/TTN_motif_aws) respectively.  The outputs under motif mode are two AWS heatmap of splicing motifs in the wild type and variant type sequence according to the variant’s information provided in the input19-motif.vcf :
 
-From the heatmap, we can find that the ```variant (chr2: 179642185 G>A)``` significantly increased the AWS (0.27>0.66) of regulatory motif ```AGAAUCACUGGGU``` to target splice motif ```GCCUACCCUGUUU``` in variant type sequence compared with the one in wild type sequence:
+From the heatmap, we can find that the ```variant (chr2: 179642185 G>A)``` significantly increased the AWS (from 0.27 to 0.66) of regulatory motif ```AGAAUCACUGGGU``` to target splice motif ```GCCUACCCUGUUU``` in variant type sequence compared with the one in wild type sequence, suggesting that regulatory motif ```AGAAUCACUGGGU``` may play a potential role in RNA splicing:
 ![image](https://github.com/TJ-zhanglab/Spliformer/blob/main/TTN_motif.png)
 ## Cite us
-If you use Spliformer, please cite [paper](link)
+If you use Spliformer for prediction, please cite [paper](link)
