@@ -10,7 +10,7 @@ import seaborn as sns
 import os
 import matplotlib.pyplot as plt
 from pkg_resources import resource_filename
-#This script was adpated from SpliceAI's prediction script
+#This script was adpated from SpliceAI's prediction script,https://github.com/Illumina/SpliceAI/blob/master/spliceai/utils.py
 class Annotator:
     def __init__(self, ref_fasta, annotations):
 
