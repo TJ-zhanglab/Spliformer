@@ -2,7 +2,7 @@
 
 Spliformer is a deep-learning tool based on CNN and self-attention mechanism for predicting the influence of genetic variants on RNA splicing in human and visualizing the attention weight score (AWS) of splicing motifs(more details, see [paper](paperlink)). It can take a VCF file containing variants of interest as input and predict the possibility of a variant causing mis-splicing. In addition, it can draw the AWS heatmaps of splicing motifs in the wild type and variant type sequences for exploring any potential splicing motifs.
 
-Spliformer can also be run on our [website](weblink), where the researchers could easily predict variants of interests and visualize the splicing motifs with their AWS in the heatmap.
+Spliformer can also be run on our [website](weblink)(updating), where the researchers could easily predict variants of interests and visualize the splicing motifs with their AWS in the heatmap.
 ## Prerequisites
 ```
 pyfaidx>=0.6.3.1,
