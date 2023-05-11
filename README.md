@@ -13,6 +13,13 @@ seaborn>=0.11.2,
 torch>=1.5.0 #CPU version
 torch>=1.9.0 #GPU version
 ```
+Our developing environment is based on ```Debian 4.19.235-1 (2022-03-17) x86_64```, and the python version is ```python 3.9.6```, and pytorch version is ```pytorch-cuda 1.9.0```.
+We encourage user to create a new conda environment before using Spliformer,you can first download miniconda through <https://docs.conda.io/en/latest/miniconda.html>, and then you can create a new conda environment named ```Spliformer```  with ```python 3.9``` through the following commands:
+```
+conda create -n Spliformer python=3.9
+conda activate Spliformer
+```
+
 ## Installation
 You can install Spliformer through github repository:
 ```
@@ -20,7 +27,7 @@ git clone https://github.com/TJ-zhanglab/Spliformer.git
 cd Spliformer
 python setup.py install
 ```
-If you use CPU to run Spliformer, ```pytorch >= 1.5.0``` is required. If you use GPU to run Spliformer, ```pytorch >= 1.9.0``` is required. You can install pytorch via pip or conda.
+If you use CPU to run Spliformer, ```pytorch >= 1.5.0``` is required. If you use GPU to run Spliformer, ```pytorch >= 1.9.0``` is required. You can install pytorch via pip or conda. More installation details can be found on <https://pytorch.org/>
 ```
 pip install pytorch
 #or
@@ -45,7 +52,7 @@ spliformer -T motif -I /path/input.vcf -R genome.fa -A annotation.txt
 -   -I: Input VCF with variants of interest.
 -   -O: Output VCF with prediction of Spliformer in **general mode**
 -   -R: Reference fasta file of human genome. Please download it first before making prediction from [GRCh37/hg19](http://hgdownload.cse.ucsc.edu/goldenPath/hg19/bigZips/hg19.fa.gz) or [GRCh38/hg38](http://hgdownload.cse.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz).
--   -A: Annotation file of human genome.  We created hg19/hg38 genome annotation file according to the GENCODE v39 gtf file. The files locate in the [./reference/](www.baidu.com).
+-   -A: Annotation file of human genome.  We created hg19/hg38 genome annotation file according to the GENCODE v39 gtf file. The files locate in the [./reference/](https://github.com/TJ-zhanglab/Spliformer/tree/main/reference).
 
 **Optional parameters**
 
@@ -77,7 +84,7 @@ An example of input file and its prediction file can be found at [examples/input
 
 >**Motif mode:**
 
-An example of input file and its prediction file can be found at [examples/input-hg19.vcf](link) and [examples/motif_results/TTN_motif_aws/]() respectively.  The outputs under motif mode are two AWS heatmap of splicing motifs in the wild type and variant type sequence according to the variant’s information provided in the input-hg19.vcf :
+An example of input file and its prediction file can be found at [examples/input-hg19.vcf](https://github.com/TJ-zhanglab/Spliformer/blob/main/examples/input19-motif.vcf) and [examples/motif_results/TTN_motif_aws/]() respectively.  The outputs under motif mode are two AWS heatmap of splicing motifs in the wild type and variant type sequence according to the variant’s information provided in the input-hg19.vcf :
 
 From the heatmap, we can find that the ```variant (chr2: 179642185 G>A)``` significantly increased the AWS (0.27>0.66) of regulatory motif ```AGAAUCACUGGGU``` to target splice motif ```GCCUACCCUGUUU``` in variant type sequence compared with the one in wild type sequence:
 ![image](https://github.com/TJ-zhanglab/Spliformer/blob/main/TTN_motif.png)
