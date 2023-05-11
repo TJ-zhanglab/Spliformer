@@ -36,13 +36,14 @@ Spliformer can be  run under two modes
 > **General mode:**
 ```sh
 #Predict the influence of variants on RNA splicing
-spliformer -T general -I /path/input.vcf -O /path/output.vcf -R /path/genome.fa -A /path/annotation.txt
+spliformer -T general -I ./examples/inputhg19.vcf -O ./output.vcf -R /path/genome.fa -A ./reference/hg19anno.txt
 ```
 > **Motif mode:**
 ```sh
 #Visualize the AWS (attention weight score) of splicing motifs in the wild type and variant type sequences.
-spliformer -T motif -I /path/input.vcf -R /path/genome.fa -A /path/annotation.txt 
+spliformer -T motif -I ./examples/inputhg19-motif.vcf -R /path/genome.fa -A ./reference/hg19anno.txt 
 ```
+The results will be saved in the **motif_result** folder.
 **Required parameters**
 
 -   -T: Tools (general/motif)for prediction (default: general)
