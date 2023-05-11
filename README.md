@@ -13,7 +13,7 @@ seaborn>=0.11.2,
 torch>=1.5.0 #CPU version
 torch>=1.9.0 #GPU version
 ```
-Our developing environment has been tested on ```Debian 4.19.235-1 (2022-03-17) x86_64```, Python version is ```python 3.9.6```, and Pytorch version is ```pytorch-cuda 1.9.0```.
+Our developing environment has been tested on ```Debian 4.19.235-1 (2022-03-17) x86_64```, Python version is ```python 3.9.6```, and Pytorch GPU version is ```pytorch 1.9.0```.
 We encourage user to create a new conda environment before using Spliformer, you can first download miniconda through <https://docs.conda.io/en/latest/miniconda.html>, and then you can create a new conda environment named ```Spliformer```  with ```python 3.9``` through the following commands:
 ```
 conda create -n Spliformer python=3.9
@@ -21,17 +21,14 @@ conda activate Spliformer
 ```
 
 ## Installation
-You can install Spliformer through github repository:
+- Install pytorch
+Pytorch-CPU/GPU can be installed via pip or conda. More installation details can be found on <https://pytorch.org/>, under ```INSTALL PYTORCH``` section. 
+
+- Install Spliformer through github repository:
 ```
 git clone https://github.com/TJ-zhanglab/Spliformer.git
 cd Spliformer
 python setup.py install
-```
-If you use CPU to run Spliformer, ```pytorch ≥ 1.5.0``` is required. If you use GPU to run Spliformer, ```pytorch ≥ 1.9.0``` is required. You can install pytorch-cpu via pip or conda. More installation details can be found on <https://pytorch.org/>
-```
-pip install pytorch
-#or
-conda install pytorch torchvision torchaudio cpuonly -c pytorch
 ```
 
 ## Usage
