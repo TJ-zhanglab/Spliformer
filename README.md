@@ -22,7 +22,7 @@ conda activate Spliformer
 
 ## Installation
 - Install pytorch
-Pytorch-CPU/GPU can be installed via pip or conda. More installation details can be found on <https://pytorch.org/>, under ```INSTALL PYTORCH``` section. 
+  Pytorch-CPU/GPU can be installed via pip or conda. More installation details can be found on <https://pytorch.org/>, under ```INSTALL PYTORCH``` section. 
 
 - Install Spliformer through github repository:
 ```
