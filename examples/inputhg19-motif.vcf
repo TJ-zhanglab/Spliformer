@@ -1,6 +1,6 @@
 ##fileformat=VCFv4.2
 ##fileDate=20191004
-##reference=GRCh38/hg38
+##reference=GRCh37/hg19
 ##contig=<ID=1,length=249250621>
 ##contig=<ID=2,length=243199373>
 ##contig=<ID=3,length=198022430>
@@ -26,10 +26,4 @@
 ##contig=<ID=X,length=155270560>
 ##contig=<ID=Y,length=59373566>
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
-1	25000	.	A	C,G,T	.	.	.
-2	178551261	.	C	CA	.	.	.
-2	178581491	.	ATACT	A	.	.	.
-2	178777458	.	G	A	.	.	.
-10	70877808	.	CT	C	.	.	.
-3	37307911	.	TGATA	T	.	.	.
-17	767476	.	AAGAAGAAATCTGGAGAGGACGTAAGAGGGAGAAACAGCGCGCACTCAGATTTTTAG	A	.	.	.
+2	179642185	.	G	A	.	.	.

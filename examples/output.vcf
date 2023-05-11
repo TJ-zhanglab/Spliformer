@@ -28,7 +28,5 @@
 ##contig=<ID=Y,length=59373566>
 ##INFO=<ID=Spliformer,Number=.,Type=String,Description="Spliformer1.0 version Format: Ref>Alt|gene|Increased acceptor dis: score|Decreased acceptor dis: score|Increased donor dis: score|Decreased donor dis: score">
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
-1	226053673	.	C	T	.	.	Spliformer=C>T|TMEM63A|-2:0.93|-6:0.52|-2:0.02|-6:0.01
-10	7618981	.	G	C	.	.	Spliformer=G>C|ITIH5|-1:0.75|-6:0.67|-1:0.01|-6:0.00
 2	179642185	.	G	A	.	.	Spliformer=G>A|TTN|2:0.00|38:0.01|2:0.83|-38:0.31
-21	41268813	.	G	A	.	.	Spliformer=G>A|PCP4|-32:0.19|7:-0.00|1:0.54|-26:0.00
+
