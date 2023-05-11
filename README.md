@@ -27,11 +27,11 @@ git clone https://github.com/TJ-zhanglab/Spliformer.git
 cd Spliformer
 python setup.py install
 ```
-If you use CPU to run Spliformer, ```pytorch ≥ 1.5.0``` is required. If you use GPU to run Spliformer, ```pytorch-cuda ≥ 1.9.0``` is required. You can install pytorch-cpu via pip or conda. More installation details can be found on <https://pytorch.org/>
+If you use CPU to run Spliformer, ```pytorch ≥ 1.5.0``` is required. If you use GPU to run Spliformer, ```pytorch ≥ 1.9.0``` is required. You can install pytorch-cpu via pip or conda. More installation details can be found on <https://pytorch.org/>
 ```
 pip install pytorch
 #or
-conda install pytorch
+conda install pytorch torchvision torchaudio cpuonly -c pytorch
 ```
 
 ## Usage
