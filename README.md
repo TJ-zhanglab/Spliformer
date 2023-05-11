@@ -75,7 +75,7 @@ Details of Spliformer INFO field in the VCF in **general mode**: Ref>Alt|gene|In
 
 >  **General mode:**
 
-An example of input file and its prediction file can be found at [examples/input-hg19.vcf](link) and [examples/output-hg19.vcf](link) respectively.  The prediction result in output.file ```G>A|TTN|2:0.00|38:0.01|2:0.83|-38:0.31```for the variant ```chr2: 179642185 G>A ```can be interpreted as follows:
+An example of input file and its prediction file can be found at [examples/input19.vcf](https://github.com/TJ-zhanglab/Spliformer/tree/main/examples) and [examples/output.vcf](https://github.com/TJ-zhanglab/Spliformer/tree/main/examples) respectively.  The prediction result in output.file ```G>A|TTN|2:0.00|38:0.01|2:0.83|-38:0.31```for the variant ```chr2: 179642185 G>A ```can be interpreted as follows:
 
 -   The possibility of the position chr2: 179642187 (2 bp downstream of the variant) is used as an acceptor increased by 0.00.
 -   The probability of the position chr2: 179642223 (38 bp downstream of the variant) is used as an acceptor decreased by 0.01.
@@ -84,7 +84,7 @@ An example of input file and its prediction file can be found at [examples/input
 
 >**Motif mode:**
 
-An example of input file and its prediction file can be found at [examples/input-hg19.vcf](https://github.com/TJ-zhanglab/Spliformer/blob/main/examples/input19-motif.vcf) and [examples/motif_results/TTN_motif_aws/]() respectively.  The outputs under motif mode are two AWS heatmap of splicing motifs in the wild type and variant type sequence according to the variant’s information provided in the input-hg19.vcf :
+An example of input file and its prediction file can be found at [examples/input19.vcf](https://github.com/TJ-zhanglab/Spliformer/tree/main/examples) and [examples/motif_results/TTN_motif_aws/]() respectively.  The outputs under motif mode are two AWS heatmap of splicing motifs in the wild type and variant type sequence according to the variant’s information provided in the input-hg19.vcf :
 
 From the heatmap, we can find that the ```variant (chr2: 179642185 G>A)``` significantly increased the AWS (0.27>0.66) of regulatory motif ```AGAAUCACUGGGU``` to target splice motif ```GCCUACCCUGUUU``` in variant type sequence compared with the one in wild type sequence:
 ![image](https://github.com/TJ-zhanglab/Spliformer/blob/main/TTN_motif.png)
