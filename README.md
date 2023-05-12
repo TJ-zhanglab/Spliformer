@@ -44,8 +44,8 @@ spliformer -T general -I ./examples/inputhg19.vcf -O ./output.vcf -R /path/genom
 spliformer -T motif -I ./examples/inputhg19-motif.vcf -R /path/genome.fa -A ./reference/hg19anno.txt
 
 #The results will be saved in the motif_result folder.
-#We recommend users first predicts variants in general model 
-#and visualize the splicing variants with the type of SNV in motif mode
+#We recommend users first predict variants in general model 
+#and visualize the splicing variants of interest with the type of SNV in motif mode
 ```
 
 **Required parameters**
