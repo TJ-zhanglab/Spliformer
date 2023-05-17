@@ -88,7 +88,7 @@ An example of input file and its prediction file can be found at [examples/input
 
 An example of input file and its prediction file can be found at [examples/inputhg19-motif.vcf](https://github.com/TJ-zhanglab/Spliformer/tree/main/examples) and [examples/motif_results/TTN_motif_aws/](https://github.com/TJ-zhanglab/Spliformer/tree/main/examples/motif_results/TTN_motif_aws) respectively.  The outputs under motif mode are two AWS heatmap of splicing motifs in the wild type and variant type containing sequences according to the variant’s information provided in the inputhg19-motif.vcf :
 
-From the heatmap, we can find that the ```variant (chr2: 179642185 G>A)``` significantly increased the AWS (from 0.27 to 0.66) of regulatory motif ```AGAAUCACUGGGU``` to target splice motif ```GCCUACCCUGUUU``` in variant type sequence compared with the one in wild type sequence, suggesting that regulatory motif ```AGAAUCACUGGGU``` may play a potential role in RNA splicing:
+From the heatmap, we can find that the ```variant (chr2: 179642185 G>A)``` significantly increased the AWS (from 0.27 to 0.66) of regulatory motif ```AGAAUCACUGGGU``` to target splice motif ```GCCUACCCUGUUU``` in the variant type containing sequence when compared to the wild type containing sequence, suggesting that the regulatory motif ```AGAAUCACUGGGU``` may modulate RNA splicing:
 ![image](https://github.com/TJ-zhanglab/Spliformer/blob/main/TTN_motif.png)
 ## Cite us
 If you use Spliformer for prediction, please cite [paper](link)
