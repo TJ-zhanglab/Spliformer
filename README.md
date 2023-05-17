@@ -1,6 +1,6 @@
 # Spliformer
 
-Spliformer is a deep-learning tool based on CNN and self-attention mechanism for predicting the influence of genetic variants on RNA splicing in human and visualizing the attention weight score (AWS) of splicing motifs(more details, see [paper](paperlink)). It can take a VCF file containing variants of interest as input and predict the possibility of a variant causing mis-splicing. In addition, it can draw the AWS heatmaps of splicing motifs in the wild type and variant type sequences for exploring any potential splicing motifs.
+Spliformer is self-attention based deep-learning tool that predicts the splicing based on pre-mRNA sequences and visualizes the attention weight score (AWS) of splicing motifs (more details, see [paper](paperlink)). Spliformer can take a VCF file containing variants of interest as an input and predict the possibility of a variant being a donor, acceptor or neither. In addition, Spliformer can generate the AWS heatmaps of selected splicing motifs in the wild type and variant type containing sequences for exploring any potential splicing motifs.
 
 Spliformer can also be run on our [website](http://43.207.244.190/spliformer/), where the researchers could easily predict variants of interests and visualize the splicing motifs with their AWS in the heatmap.
 ## Prerequisites
@@ -14,7 +14,7 @@ torch>=1.5.0 #CPU version
 torch>=1.9.0 #GPU version
 ```
 Our developing environment has been tested on ```Debian 4.19.235-1 (2022-03-17) x86_64```, Python version is ```python 3.9.6```, and Pytorch GPU version is ```pytorch 1.9.0```.
-We encourage user to create a new conda environment before using Spliformer, you can first download miniconda through <https://docs.conda.io/en/latest/miniconda.html>, and then you can create a new conda environment named ```Spliformer```  with ```python 3.9``` through the following commands:
+We encourage users to create a new conda environment before using Spliformer, you can first download miniconda through <https://docs.conda.io/en/latest/miniconda.html>, and then you can create a new conda environment named ```Spliformer```  with ```python 3.9``` through the following commands:
 ```
 conda create -n Spliformer python=3.9
 conda activate Spliformer
