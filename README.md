@@ -40,12 +40,12 @@ spliformer -T general -I ./examples/inputhg19.vcf -O ./output.vcf -R /path/genom
 ```
 > **Motif mode:**
 ```sh
-#Visualize the AWS (attention weight score) of splicing motifs in the wild type and variant type sequences.
+#Visualize the AWS (attention weight score) of splicing motifs in the wild type and variant type containing sequences.
 spliformer -T motif -I ./examples/inputhg19-motif.vcf -R /path/genome.fa -A ./reference/hg19anno.txt
 
 #The results will be saved in the motif_result folder.
-#We recommend users first predict variants in general model 
-#and visualize the splicing variants of interest with the type of SNV in motif mode
+#We recommend users to first predict variants in general model 
+#and visualize the splicing variants of interest with the type of SNV in the motif mode
 ```
 
 **Required parameters**
@@ -86,7 +86,7 @@ An example of input file and its prediction file can be found at [examples/input
 
 >**Motif mode:**
 
-An example of input file and its prediction file can be found at [examples/inputhg19-motif.vcf](https://github.com/TJ-zhanglab/Spliformer/tree/main/examples) and [examples/motif_results/TTN_motif_aws/](https://github.com/TJ-zhanglab/Spliformer/tree/main/examples/motif_results/TTN_motif_aws) respectively.  The outputs under motif mode are two AWS heatmap of splicing motifs in the wild type and variant type sequence according to the variant’s information provided in the inputhg19-motif.vcf :
+An example of input file and its prediction file can be found at [examples/inputhg19-motif.vcf](https://github.com/TJ-zhanglab/Spliformer/tree/main/examples) and [examples/motif_results/TTN_motif_aws/](https://github.com/TJ-zhanglab/Spliformer/tree/main/examples/motif_results/TTN_motif_aws) respectively.  The outputs under motif mode are two AWS heatmap of splicing motifs in the wild type and variant type containing sequences according to the variant’s information provided in the inputhg19-motif.vcf :
 
 From the heatmap, we can find that the ```variant (chr2: 179642185 G>A)``` significantly increased the AWS (from 0.27 to 0.66) of regulatory motif ```AGAAUCACUGGGU``` to target splice motif ```GCCUACCCUGUUU``` in variant type sequence compared with the one in wild type sequence, suggesting that regulatory motif ```AGAAUCACUGGGU``` may play a potential role in RNA splicing:
 ![image](https://github.com/TJ-zhanglab/Spliformer/blob/main/TTN_motif.png)
