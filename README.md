@@ -2,7 +2,7 @@
 
 Spliformer is self-attention based deep-learning tool that predicts the splicing based on pre-mRNA sequences and visualizes the attention weight score (AWS) of splicing motifs (more details, see [paper](paperlink)). Spliformer can take a VCF file containing variants of interest as an input and predict the possibility of a variant being a donor, acceptor or neither. In addition, Spliformer can generate the AWS heatmaps of selected splicing motifs in the wild type and variant type containing sequences for exploring any potential splicing motifs.
 
-Spliformer can also be run on our [website](http://43.207.244.190/spliformer/), where the researchers could easily predict variants of interests and visualize the splicing motifs with their AWS in the heatmap.
+Spliformer can also be run on our [website](https://www.aibraingenomics.com/spliformer/), where the researchers could easily predict variants of interests and visualize the splicing motifs with their AWS in the heatmap.
 ## Prerequisites
 ```
 pyfaidx>=0.6.3.1,
