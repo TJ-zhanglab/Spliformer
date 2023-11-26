@@ -19,7 +19,7 @@ class Annotator:
         self.strands = df['STRAND'].to_numpy()
         self.tx_starts = df['GENE_START'].to_numpy() + 1
         self.tx_ends = df['GENE_END'].to_numpy()
-        self.exon_starts = [np.asarray([int(i) for i in c.split(',') if i]) + 1
+        self.exon_starts = [np.asarray([int(i) for i in c.split(',') if i])
                             for c in df['EXON_START'].to_numpy()]
         self.exon_ends = [np.asarray([int(i) for i in c.split(',') if i])
                           for c in df['EXON_END'].to_numpy()]
@@ -60,7 +60,7 @@ def one_hot(seqs, strand):
         seqs = preprocess_inputs(seqs)
     elif strand == '-':
         token2int = {x: i for i, x in enumerate('NTGCA')}
-        seqs = preprocess_inputs(seqs[::-1])  # 取反后互换
+        seqs = preprocess_inputs(seqs[::-1])  
 
     return seqs
 
