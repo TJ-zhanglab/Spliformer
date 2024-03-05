@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import torch
 import torch.nn as nn
-from spliformer.Network_motif import *
+from Network_motif import *
 from pyfaidx import Fasta
 import logging
 import pysam
@@ -10,7 +10,7 @@ import seaborn as sns
 import os
 import matplotlib.pyplot as plt
 from pkg_resources import resource_filename
-#This script was adpated from SpliceAI's prediction script,https://github.com/Illumina/SpliceAI/blob/master/spliceai/utils.py
+#This script was adpated from SpliceAI's prediction script
 class Annotator:
     def __init__(self, ref_fasta, annotations):
 
@@ -56,6 +56,7 @@ def one_hot(seqs, strand):
     elif strand == '-':
         token2int = {x: i for i, x in enumerate('NTGCA')}
         seqs = preprocess_inputs(seqs[::-1])  # 取反后互换
+        # seqs = preprocess_inputs(seqs)
 
     return seqs
 
@@ -140,7 +141,11 @@ def predict(record, ann, model, distance):
             x_alt=x_alt[0:93]
             label_ref=x_ref.replace('T','U')
             label_alt=x_alt.replace('T','U')
-
+            if strands[i] == '-':  
+                label_ref=label_ref[::-1].replace('A','a').replace('U','t').replace('C','c').replace('G','g').replace('n','N')
+                label_ref=label_ref.replace('a','U').replace('t','A').replace('c','G').replace('g','C')
+                label_alt=label_alt[::-1].replace('A','a').replace('U','t').replace('C','c').replace('G','g').replace('n','N')
+                label_alt=label_alt.replace('a','U').replace('t','A').replace('c','G').replace('g','C')
             x_ref = torch.tensor(one_hot(x_ref, strands[i]))
             x_alt = torch.tensor(one_hot(x_alt, strands[i]))
             if torch.cuda.is_available():
@@ -176,7 +181,7 @@ def spliformer_motif_predict(argsI, argsR, argsA, argsN, argsG):
 
     model = Spliformer_motif(5, 3, 64, 8, 1024, 6, 0.1).to(device)
 
-    Model = torch.load(resource_filename(__name__,"weights/spliformer-motif.ckpt"),map_location=torch.device('cpu'))
+    Model = torch.load(resource_filename(__name__,"model_weights/spliformer-motif.ckpt"),map_location=torch.device('cpu'))
     model.load_state_dict(Model['model_state_dict'])
     model.eval()
     if not os.path.exists('motif_result'):
@@ -186,4 +191,3 @@ def spliformer_motif_predict(argsI, argsR, argsA, argsN, argsG):
         predict(mutation, ann, model, argsN)
 
     vcf.close()
-
