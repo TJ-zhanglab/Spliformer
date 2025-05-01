@@ -31,6 +31,17 @@ cd Spliformer
 pip install -r requirements.txt
 python setup.py install
 ```
+### Install Spliformer with Docker
+Spliformer can also be installed and run through Docker. This avoids manually configuring Python, PyTorch and other dependencies.
+```sh
+git clone https://github.com/TJ-zhanglab/Spliformer.git
+cd Spliformer
+docker build -t spliformer:v1 .
+```
+Check whether the Docker image was built successfully:
+```sh
+docker run --rm spliformer:v1 --help
+```
 
 ## Usage
 Spliformer can be  run under two modes
@@ -48,6 +59,39 @@ spliformer -T motif -I ./examples/inputhg19-motif.vcf -R /path/genome.fa -A ./re
 #We recommend users to first predict variants in general model 
 #and visualize the splicing variants of interest with the type of SNV in the motif mode
 ```
+## Docker Usage
+
+Before running Spliformer with Docker, please make sure that the input VCF file, reference genome FASTA file and annotation file are available in the directory mounted to the Docker container.
+
+The `-v $(pwd):/data` option mounts the current local directory to `/data` inside the Docker container. Therefore, files in the current directory can be accessed inside the container using the `/data/` path.
+
+### General mode with Docker
+
+```sh
+docker run --rm \
+  -v $(pwd):/data \
+  spliformer:v1 \
+  -T general \
+  -I /data/examples/inputhg19.vcf \
+  -O /data/output.vcf \
+  -R /data/reference/hg19.fa \
+  -A /data/reference/hg19anno.txt
+```
+
+### Motif mode with Docker
+
+```sh
+docker run --rm \
+  -v $(pwd):/data \
+  -w /data \
+  spliformer:v1 \
+  -T motif \
+  -I /data/examples/inputhg19-motif.vcf \
+  -R /data/reference/hg19.fa \
+  -A /data/reference/hg19anno.txt
+```
+
+For motif mode, `-w /data` is recommended so that the `motif_result` folder will be generated in the current local directory.
 
 **Required parameters**
 
