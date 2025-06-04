@@ -1,6 +1,6 @@
 # Spliformer
 
-Spliformer is self-attention based deep-learning tool that predicts the splicing based on pre-mRNA sequences and visualizes the attention weight score (AWS) of splicing motifs (more details, see [paper](paperlink)). Spliformer can take a VCF file containing variants of interest as an input and predict the possibility of a variant being a donor, acceptor or neither. In addition, Spliformer can generate the AWS heatmaps of selected splicing motifs in the wild type and variant type containing sequences for exploring any potential splicing motifs.
+Spliformer is self-attention based deep-learning tool that predicts the splicing based on pre-mRNA sequences and visualizes the attention weight score (AWS) of splicing motifs (more details, see [paper](https://academic.oup.com/brain/advance-article-abstract/doi/10.1093/brain/awaf025/7978723?redirectedFrom=fulltext&login=false)). Spliformer can take a VCF file containing variants of interest as an input and predict the possibility of a variant being a donor, acceptor or neither. In addition, Spliformer can generate the AWS heatmaps of selected splicing motifs in the wild type and variant type containing sequences for exploring any potential splicing motifs.
 
 Spliformer can also be run on our [website](https://www.aibraingenomics.com/spliformer/), where the researchers could easily predict variants of interests and visualize the splicing motifs with their AWS in the heatmap.
 ## Prerequisites
@@ -91,4 +91,4 @@ An example of input file and its prediction file can be found at [examples/input
 From the heatmap, we can find that the ```variant (chr2: 179642185 G>A)``` significantly increased the AWS (from 0.27 to 0.66) of regulatory motif ```AGAAUCACUGGGU``` to target splice motif ```GCCUACCCUGUUU``` in the variant type containing sequence when compared to the wild type containing sequence, suggesting that the regulatory motif ```AGAAUCACUGGGU``` may modulate RNA splicing:
 ![image](https://github.com/TJ-zhanglab/Spliformer/blob/main/TTN_motif.png)
 ## Cite us
-If you use Spliformer for prediction, please cite [paper](link)
+If you use Spliformer for prediction, please cite [paper](https://academic.oup.com/brain/advance-article-abstract/doi/10.1093/brain/awaf025/7978723?redirectedFrom=fulltext&login=false)
