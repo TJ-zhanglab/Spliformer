@@ -28,6 +28,7 @@ conda activate Spliformer
 ```
 git clone https://github.com/TJ-zhanglab/Spliformer.git
 cd Spliformer
+pip install -r requirements.txt
 python setup.py install
 ```
 
