@@ -14,7 +14,7 @@ torch>=1.5.0 #CPU version
 torch>=1.9.0 #GPU version
 ```
 Our developing environment has been tested on ```Debian 4.19.235-1 (2022-03-17) x86_64```, Python version is ```python 3.9.6```, and Pytorch GPU version is ```pytorch 1.9.0```.
-We encourage users to create a new conda environment before using Spliformer, you can first download miniconda through <https://docs.conda.io/en/latest/miniconda.html>, and then you can create a new conda environment named ```Spliformer```  with ```python 3.9``` through the following commands:
+We encourage users to create a new conda environment before using Spliformer, you can first download miniconda through <https://www.anaconda.com/download/success>, and then you can create a new conda environment named ```Spliformer```  with ```python 3.9``` through the following commands:
 ```
 conda create -n Spliformer python=3.9
 conda activate Spliformer
