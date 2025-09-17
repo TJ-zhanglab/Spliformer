@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import torch
 import torch.nn as nn
-from Network_motif import *
+from spliformer.Network_motif import *
 from pyfaidx import Fasta
 import logging
 import pysam
