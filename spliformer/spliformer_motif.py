@@ -181,7 +181,7 @@ def spliformer_motif_predict(argsI, argsR, argsA, argsN, argsG):
 
     model = Spliformer_motif(5, 3, 64, 8, 1024, 6, 0.1).to(device)
 
-    Model = torch.load(resource_filename(__name__,"model_weights/spliformer-motif.ckpt"),map_location=torch.device('cpu'))
+    Model = torch.load(resource_filename(__name__,"weights/spliformer-motif.ckpt"),map_location=torch.device('cpu'))
     model.load_state_dict(Model['model_state_dict'])
     model.eval()
     if not os.path.exists('motif_result'):
